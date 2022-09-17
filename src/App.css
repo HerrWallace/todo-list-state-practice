@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.button {
+  margin-left: 5px;
+  background-color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(243, 241, 241);
+  transition: 0.3s;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}
+
+input:checked + span {
+  text-decoration: line-through;
+}
