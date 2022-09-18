@@ -4,14 +4,14 @@ type InputFieldProps = {
   handleSubmit: () => void;
 };
 
-export const InputField = ({
-  text,
-  handleInput,
-  handleSubmit,
-}: InputFieldProps) => {
+export const InputField = ({ text, handleInput, handleSubmit }: InputFieldProps) => {
   return (
     <label>
-      <input value={text} onChange={(e) => handleInput(e.target.value)} />
+      <input
+        value={text}
+        placeholder='Add todo'
+        onChange={(e) => handleInput(e.target.value)}
+      />
       <button className='button' onClick={handleSubmit}>
         Add Todo
       </button>
