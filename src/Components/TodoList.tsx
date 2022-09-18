@@ -1,26 +1,14 @@
-import { todoObj } from '../App';
+import { useAppSelector } from '../hooks';
 import { TodoItem } from './TodoItem';
 
-type TodoListProps = {
-  todos: todoObj[];
-  removeTodo(id: string): void;
-  toggleTodoComplete(id: string): void;
-};
 
-export const TodoList = ({
-  todos,
-  removeTodo,
-  toggleTodoComplete,
-}: TodoListProps) => {
+export const TodoList = () => {
+  const todos = useAppSelector((state) => state.todos.list);
+
   return (
     <ul>
       {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          removeTodo={removeTodo}
-          toggleTodoComplete={toggleTodoComplete}
-          todo={todo}
-        />
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   );

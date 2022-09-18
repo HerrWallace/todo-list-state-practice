@@ -1,26 +1,24 @@
-import { todoObj } from '../App';
+import { Todo } from '../store/todoSlice';
+import { removeTodo, toggleСomplete } from '../store/todoSlice';
+import { useAppDispatch } from './../hooks';
 
 type TodoItemProps = {
-  todo: todoObj;
-  removeTodo(id: string): void;
-  toggleTodoComplete(id: string): void;
+  todo: Todo;
 };
 
-export const TodoItem = ({
-  todo,
-  removeTodo,
-  toggleTodoComplete,
-}: TodoItemProps) => {
+export const TodoItem = ({ todo }: TodoItemProps) => {
   const { id, text, completed } = todo;
+  const dispatch = useAppDispatch();
+
   return (
     <li>
       <input
         type='checkbox'
         checked={completed}
-        onChange={() => toggleTodoComplete(id)}
+        onChange={() => dispatch(toggleСomplete(id))}
       />
       <span>{text}</span>
-      <span className='delete' onClick={() => removeTodo(id)}>
+      <span className='delete' onClick={() => dispatch(removeTodo(id))}>
         &times;
       </span>
     </li>
